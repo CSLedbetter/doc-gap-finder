@@ -135,6 +135,11 @@ button[aria-pressed="true"] { background: var(--accent-soft); border-color: var(
 .gap .tickets { padding: 6px 8px 14px 48px; display: grid; gap: 10px; }
 .gap .tk { display: grid; grid-template-columns: 80px 1fr; gap: 10px; font-size: 14px; }
 .gap .tk .why { color: var(--ink-2); font-size: 13px; }
+.family { display: flex; flex-wrap: wrap; gap: 6px; font-size: 14px; }
+.family a, .family span { padding: 4px 10px; border: 1px solid var(--line); border-radius: 999px; text-decoration: none; }
+.family span { background: var(--accent-soft); border-color: transparent; font-weight: 600; }
+a.handoff { display: inline-block; margin-top: 4px; font-weight: 600; white-space: nowrap; }
+a.handoff::after { content: " \2192"; }
 .gap .docs { font-size: 13px; color: var(--ink-3); }
 .tip { position: fixed; pointer-events: none; background: var(--ink); color: var(--panel); font-size: 12px; padding: 6px 8px; border-radius: 6px; z-index: 5; }
 
@@ -184,6 +189,11 @@ footer { color: var(--ink-3); font-size: 13px; }
     <h1 id="headline"></h1>
     <p class="lede" id="lede"></p>
     <div class="tiles" id="tiles"></div>
+    <nav class="family" aria-label="Related tools">
+      <span aria-current="page">Doc Gap Finder</span>
+      <a href="https://api-error-explainer.caseyledbetter.com">API Error Explainer</a>
+      <a href="https://sso-assistant.caseyledbetter.com">SSO Assistant</a>
+    </nav>
   </header>
 
   <section class="panel" aria-labelledby="how">
@@ -286,6 +296,14 @@ const esc = (s) => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;
 const topicById = Object.fromEntries(DATA.topics.map(t => [t.topic_id, t]));
 const biggest = DATA.topics[0];
 
+/* handoff: API error tickets open in API Error Explainer with the ticket loaded (sent in the URL fragment, never to a server) */
+const EXPLAINER = "https://api-error-explainer.caseyledbetter.com";
+const isApiError = (t) => /\b(400|401|403|413|429|500|504|529)s?\b|_error\b|invalid api key|credit balance|overloaded|timeouts?\b/i.test(`${t.subject} ${t.body}`);
+const b64url = (s) => btoa(Array.from(new TextEncoder().encode(s), (b) => String.fromCharCode(b)).join("")).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+const explainLink = (t) => isApiError(t)
+  ? `<a class="handoff" href="${EXPLAINER}/#ticket=${b64url(JSON.stringify({ id: t.id, subject: t.subject, body: t.body, plan: t.plan, from_name: t.from_name }))}" target="_blank" rel="noopener">Explain this error in API Error Explainer</a>`
+  : "";
+
 $("#headline").textContent = `${S.missing} of ${S.tickets} support tickets had no help article that answered them. One new article cuts that to ${S.missing_after}.`;
 $("#lede").textContent = `This tool reads a week of support tickets, groups them by topic, and checks each one against ${S.doc_pages.toLocaleString()} pages of public documentation. It then drafts the article that would close the biggest gap.`;
 $("#tiles").innerHTML = [
@@ -306,7 +324,7 @@ function rowHTML(t) {
     <span class="chan">${CH[t.channel] || t.channel}</span>
     <div class="subj"><b>${esc(t.subject)}</b> <span class="from">· ${esc(t.from_name)} · ${esc(t.plan)} · <span class="mono">${t.id}</span></span><div class="body">${esc(t.body)}</div></div>
     <span style="display:grid;gap:4px;justify-items:end"><span class="pill ${t.coverage}">${t.coverage[0].toUpperCase() + t.coverage.slice(1)}</span>${fixed}</span>
-    <div class="detail" hidden><b>${esc(topicById[t.topic_id].label)}.</b> ${esc(t.reason)} ${doc}</div>
+    <div class="detail" hidden><b>${esc(topicById[t.topic_id].label)}.</b> ${esc(t.reason)} ${doc}${explainLink(t)}</div>
   </div>`;
 }
 function renderInbox(animateLast) {
@@ -335,7 +353,7 @@ renderInbox(false);
 const tip = $("#tip");
 $("#gaps").innerHTML = DATA.topics.map((t, i) => {
   const seg = (cls, n, name) => n ? `<span class="${cls}" style="flex:${n}" data-tip="${name}: ${n} of ${t.tickets} tickets"></span>` : "";
-  const tks = DATA.tickets.filter(x => x.topic_id === t.topic_id).map(x => `<div class="tk"><span class="pill ${x.coverage}">${x.coverage}</span><div><b>${esc(x.subject)}</b> <span class="muted mono" style="font-size:12px">${x.id}</span><div class="why">${esc(x.reason)} ${x.doc_url ? `<a href="${esc(x.doc_url)}" target="_blank" rel="noopener">Open doc</a>` : ""}</div></div></div>`).join("");
+  const tks = DATA.tickets.filter(x => x.topic_id === t.topic_id).map(x => `<div class="tk"><span class="pill ${x.coverage}">${x.coverage}</span><div><b>${esc(x.subject)}</b> <span class="muted mono" style="font-size:12px">${x.id}</span><div class="why">${esc(x.reason)} ${x.doc_url ? `<a href="${esc(x.doc_url)}" target="_blank" rel="noopener">Open doc</a>` : ""} ${explainLink(x)}</div></div></div>`).join("");
   const docs = t.docs_checked.slice(0, 4).map(d => `<a href="${esc(d.url)}" target="_blank" rel="noopener">${esc(d.title)}</a>`).join(", ");
   return `<details class="gap"><summary>
     <span class="rank">${i + 1}</span>
