@@ -1,0 +1,357 @@
+<title>Support Doc Gap Finder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a help-desk console. Summary up top, then the inbox, the ranked gaps, and the fix, each as one wide panel on a quiet ground. */
+:root {
+  --ground: #f3f5f8;
+  --panel: #ffffff;
+  --ink: #18202c;
+  --ink-2: #4a5566;
+  --ink-3: #6d7889;
+  --line: #dde2ea;
+  --accent: #2b5fd9;
+  --accent-soft: #e6edfc;
+  --good: #0ca30c;
+  --warn: #fab219;
+  --bad: #d03b3b;
+  --good-ink: #0a6e0a;
+  --warn-ink: #8a5a00;
+  --bad-ink: #b02c2c;
+  --confirm-bg: #fff3d1;
+  --confirm-ink: #6e4700;
+  --f-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --f-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground: #10141b; --panel: #171d26; --ink: #e7ebf2; --ink-2: #b2bccb; --ink-3: #8a95a6; --line: #2a3340;
+    --accent: #7ea2ff; --accent-soft: #1d2a47; --good-ink: #5fd35f; --warn-ink: #f5c454; --bad-ink: #ff8a8a;
+    --confirm-bg: #3a2e12; --confirm-ink: #f5d68c; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --ground: #10141b; --panel: #171d26; --ink: #e7ebf2; --ink-2: #b2bccb; --ink-3: #8a95a6; --line: #2a3340;
+  --accent: #7ea2ff; --accent-soft: #1d2a47; --good-ink: #5fd35f; --warn-ink: #f5c454; --bad-ink: #ff8a8a;
+  --confirm-bg: #3a2e12; --confirm-ink: #f5d68c; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--ground); color: var(--ink); font-family: var(--f-body); font-size: 15px; line-height: 1.55; }
+.wrap { max-width: 1120px; margin: 0 auto; padding-inline: 20px; padding-block: 32px 64px; display: grid; gap: 28px; }
+h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; margin: 0; letter-spacing: -0.01em; }
+h1 { font-size: clamp(28px, 4.6vw, 46px); line-height: 1.08; font-weight: 700; }
+h2 { font-size: 24px; font-weight: 700; }
+h3 { font-size: 17px; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--accent); }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.eyebrow { font-family: var(--f-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); }
+.lede { color: var(--ink-2); font-size: 17px; max-width: 64ch; }
+.mono { font-family: var(--f-mono); }
+.muted { color: var(--ink-3); }
+
+header.hero { display: grid; gap: 14px; padding-block: 8px; }
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-top: 8px; }
+.tile { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; display: grid; gap: 4px; }
+.tile .num { font-family: var(--f-display); font-size: 40px; font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; }
+.tile .num small { font-size: 18px; color: var(--ink-3); font-weight: 500; }
+.tile .cap { color: var(--ink-2); font-size: 14px; }
+
+section.panel { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 22px; display: grid; gap: 16px; min-width: 0; }
+.sec-head { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: baseline; justify-content: space-between; }
+.sec-head p { color: var(--ink-2); max-width: 70ch; }
+
+/* steps */
+ol.steps { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; counter-reset: s; }
+ol.steps li { counter-increment: s; border-top: 3px solid var(--accent); padding-top: 10px; display: grid; gap: 4px; font-size: 14px; color: var(--ink-2); }
+ol.steps li::before { content: "Step " counter(s); font-family: var(--f-mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); }
+ol.steps b { color: var(--ink); font-weight: 600; }
+
+/* inbox */
+.toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+button { font: inherit; font-size: 14px; border-radius: 8px; border: 1px solid var(--line); background: var(--panel); color: var(--ink); padding: 6px 12px; cursor: pointer; }
+button:hover { border-color: var(--ink-3); }
+button.primary { background: var(--accent); border-color: var(--accent); color: var(--panel); font-weight: 600; }
+button[aria-pressed="true"] { background: var(--accent-soft); border-color: var(--accent); color: var(--ink); }
+.counter { margin-left: auto; font-family: var(--f-mono); font-size: 13px; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.inbox { border: 1px solid var(--line); border-radius: 10px; max-height: 420px; overflow: auto; }
+.trow { display: grid; grid-template-columns: 92px 84px 1fr auto; gap: 12px; align-items: start; padding: 10px 14px; border-bottom: 1px solid var(--line); cursor: pointer; }
+.trow:last-child { border-bottom: 0; }
+.trow:hover { background: var(--accent-soft); }
+.trow .when { font-family: var(--f-mono); font-size: 12px; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.trow .subj { min-width: 0; }
+.trow .subj b { font-weight: 600; }
+.trow .subj .from { color: var(--ink-3); font-size: 13px; }
+.trow .body { color: var(--ink-2); font-size: 14px; margin-top: 4px; }
+.trow .detail { grid-column: 3 / -1; font-size: 13px; color: var(--ink-2); border-left: 2px solid var(--line); padding-left: 10px; }
+.chan { font-family: var(--f-mono); font-size: 11px; padding: 2px 6px; border-radius: 4px; background: var(--ground); color: var(--ink-2); justify-self: start; }
+.pill { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 999px; border: 1px solid var(--line); white-space: nowrap; }
+.pill::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--dot); }
+.pill.covered { --dot: var(--good); color: var(--good-ink); }
+.pill.partial { --dot: var(--warn); color: var(--warn-ink); }
+.pill.missing { --dot: var(--bad); color: var(--bad-ink); }
+.pill.fixed { --dot: var(--accent); color: var(--accent); }
+.trow.arriving { animation: drop .35s ease-out; }
+@keyframes drop { from { transform: translateY(-6px); background: var(--accent-soft); } to { transform: none; } }
+
+/* gaps */
+.legend { display: flex; flex-wrap: wrap; gap: 14px; font-size: 13px; color: var(--ink-2); }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend i { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+.gaps { display: grid; gap: 2px; }
+.gap { border-radius: 8px; }
+.gap > summary { list-style: none; display: grid; grid-template-columns: 28px minmax(0, 1.4fr) minmax(140px, 1fr) 64px; gap: 12px; align-items: center; padding: 10px 8px; cursor: pointer; border-radius: 8px; }
+.gap > summary::-webkit-details-marker { display: none; }
+.gap > summary:hover { background: var(--accent-soft); }
+.gap[open] > summary { background: var(--accent-soft); }
+.gap .rank { font-family: var(--f-mono); font-size: 13px; color: var(--ink-3); text-align: right; font-variant-numeric: tabular-nums; }
+.gap .lbl { font-weight: 600; min-width: 0; }
+.gap .lbl small { display: block; font-weight: 400; color: var(--ink-3); font-size: 13px; }
+.bar { display: flex; gap: 2px; height: 14px; }
+.bar span { display: block; height: 100%; border-radius: 0; position: relative; }
+.bar span:first-child { border-radius: 4px 0 0 4px; }
+.bar span:last-child { border-radius: 0 4px 4px 0; }
+.bar span:only-child { border-radius: 4px; }
+.bar .c { background: var(--good); } .bar .p { background: var(--warn); } .bar .m { background: var(--bad); }
+.score { font-family: var(--f-mono); font-size: 13px; text-align: right; font-variant-numeric: tabular-nums; color: var(--ink-2); }
+.gap .tickets { padding: 6px 8px 14px 48px; display: grid; gap: 10px; }
+.gap .tk { display: grid; grid-template-columns: 80px 1fr; gap: 10px; font-size: 14px; }
+.gap .tk .why { color: var(--ink-2); font-size: 13px; }
+.gap .docs { font-size: 13px; color: var(--ink-3); }
+.tip { position: fixed; pointer-events: none; background: var(--ink); color: var(--panel); font-size: 12px; padding: 6px 8px; border-radius: 6px; z-index: 5; }
+
+/* fix */
+.fix { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 22px; align-items: start; }
+.article { border: 1px solid var(--line); border-radius: 10px; padding: 20px 22px; max-height: 640px; overflow: auto; min-width: 0; }
+.article h1 { font-size: 24px; margin-bottom: 10px; }
+.article h2 { font-size: 17px; margin: 18px 0 6px; }
+.article p, .article li { color: var(--ink); max-width: 66ch; }
+.article p { margin: 8px 0; }
+.article ul, .article ol { padding-left: 22px; margin: 8px 0; }
+.confirm { background: var(--confirm-bg); color: var(--confirm-ink); border-radius: 4px; padding: 1px 4px; font-size: 13.5px; }
+.side { display: grid; gap: 18px; min-width: 0; }
+.ba { display: grid; gap: 12px; }
+.ba-row { display: grid; gap: 4px; }
+.ba-row .t { display: flex; justify-content: space-between; font-size: 14px; }
+.ba-row .t b { font-variant-numeric: tabular-nums; }
+.track { height: 12px; background: var(--ground); border-radius: 4px; position: relative; overflow: hidden; }
+.track span { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 4px; }
+.track .before { background: var(--bad); opacity: .35; }
+.track .after { background: var(--bad); }
+ul.qs { margin: 0; padding-left: 20px; display: grid; gap: 6px; font-size: 14px; color: var(--ink-2); }
+.callout { border-left: 3px solid var(--warn); padding: 4px 0 4px 14px; display: grid; gap: 6px; }
+pre { background: var(--ground); border: 1px solid var(--line); border-radius: 8px; padding: 14px; overflow-x: auto; font-family: var(--f-mono); font-size: 13px; margin: 0; }
+.cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+.cols > div { display: grid; gap: 8px; align-content: start; min-width: 0; }
+.cols p, .cols li { color: var(--ink-2); font-size: 14px; }
+.cols ul { margin: 0; padding-left: 18px; display: grid; gap: 4px; }
+footer { color: var(--ink-3); font-size: 13px; }
+
+@media (max-width: 760px) {
+  .fix { grid-template-columns: 1fr; }
+  .trow { grid-template-columns: 1fr auto; }
+  .trow .when, .trow .chan { grid-column: 1; }
+  .trow .detail { grid-column: 1 / -1; }
+  .gap > summary { grid-template-columns: 22px minmax(0, 1fr) 48px; }
+  .gap > summary .bar { grid-column: 2 / -1; }
+  .gap .tickets { padding-left: 8px; }
+  .gap .tk { grid-template-columns: 1fr; gap: 2px; }
+}
+@media (prefers-reduced-motion: reduce) { .trow.arriving { animation: none; } }
+</style>
+
+<div class="wrap">
+  <header class="hero">
+    <span class="eyebrow">Support operations · Doc gap finder</span>
+    <h1 id="headline"></h1>
+    <p class="lede" id="lede"></p>
+    <div class="tiles" id="tiles"></div>
+  </header>
+
+  <section class="panel" aria-labelledby="how">
+    <div class="sec-head"><h2 id="how">How it works</h2><p>Point it at any help center that has a sitemap and any ticket queue. This run used Claude's public docs.</p></div>
+    <ol class="steps">
+      <li><b>Collect tickets</b> from the inbox as they arrive.</li>
+      <li><b>Crawl the docs</b> from the site's sitemap into a searchable snapshot.</li>
+      <li><b>Group by topic</b> with Claude, by the question the customer needs answered.</li>
+      <li><b>Check coverage</b> of each ticket against the closest articles: covered, partial or missing.</li>
+      <li><b>Rank the gaps</b> by ticket volume times missing coverage.</li>
+      <li><b>Draft the fix</b> for the biggest gap, then re-check every open ticket against it.</li>
+    </ol>
+  </section>
+
+  <section class="panel" aria-labelledby="inbox-h">
+    <div class="sec-head"><h2 id="inbox-h">The inbox</h2><p>One simulated week of tickets about Claude. Click a ticket to see which doc answers it, or why none does.</p></div>
+    <div class="toolbar" role="group" aria-label="Inbox controls">
+      <button class="primary" id="replay" type="button">Replay the week</button>
+      <button type="button" data-f="all" aria-pressed="true">All</button>
+      <button type="button" data-f="covered" aria-pressed="false">Covered</button>
+      <button type="button" data-f="partial" aria-pressed="false">Partial</button>
+      <button type="button" data-f="missing" aria-pressed="false">Missing</button>
+      <span class="counter" id="counter"></span>
+    </div>
+    <div class="inbox" id="inbox" role="list"></div>
+  </section>
+
+  <section class="panel" aria-labelledby="gaps-h">
+    <div class="sec-head"><h2 id="gaps-h">Where the docs fall short</h2><p>Topics ranked by gap score: each missing ticket counts 1 and each partial counts 0.5. Open a topic to see every ticket and the doc it was checked against.</p></div>
+    <div class="legend"><span><i style="background:var(--good)"></i>Covered</span><span><i style="background:var(--warn)"></i>Partial</span><span><i style="background:var(--bad)"></i>Missing</span><span class="muted">Right column: gap score</span></div>
+    <div class="gaps" id="gaps"></div>
+  </section>
+
+  <section class="panel" aria-labelledby="fix-h">
+    <div class="sec-head"><h2 id="fix-h">The fix for the biggest gap</h2><p id="fix-sub"></p></div>
+    <div class="fix">
+      <article class="article" id="article"></article>
+      <div class="side">
+        <div class="ba">
+          <h3>Before and after</h3>
+          <div id="ba"></div>
+        </div>
+        <div>
+          <h3>Questions for the billing team</h3>
+          <p class="muted" style="font-size:14px;margin:4px 0 8px">The draft only states policy the current docs support. Everything else is marked for confirmation, highlighted in the article.</p>
+          <ul class="qs" id="qs"></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel" aria-labelledby="also-h">
+    <div class="sec-head"><h2 id="also-h">Also caught in review</h2></div>
+    <div class="callout">
+      <p><b>Two articles disagree about passwords.</b> <a href="https://support.claude.com/en/articles/13124001-managing-your-active-sessions">Managing your active sessions</a> tells people who spot an unknown session to "consider changing your password," but <a href="https://support.claude.com/en/articles/13189465-log-in-to-your-claude-account">Log in to your Claude account</a> says Claude accounts can't have a password. A customer who thinks they were hacked hits a dead end, which lines up with the account security tickets above.</p>
+    </div>
+  </section>
+
+  <section class="panel" aria-labelledby="run-h">
+    <div class="sec-head"><h2 id="run-h">Run it yourself</h2></div>
+    <div class="cols">
+      <div>
+        <h3>Commands</h3>
+<pre>pip install anthropic beautifulsoup4
+python crawl_docs.py          # snapshot the docs
+python inbox.py replay        # fill the inbox
+python find_gaps.py           # group, check, rank, draft
+python build_report.py        # this page</pre>
+      </div>
+      <div>
+        <h3>What's real and what's made up</h3>
+        <ul>
+          <li><b>Tickets are invented</b> for the demo, along with every name and email.</li>
+          <li><b>The docs are real:</b> <span id="docmeta"></span></li>
+          <li><b>Every verdict was checked</b> against the text of the crawled pages, and each one names the doc it relied on.</li>
+          <li id="modeline"></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Use it on another product</h3>
+        <ul>
+          <li>Swap the sitemaps in <span class="mono">config.json</span> for your own help center.</li>
+          <li>Replace <span class="mono">data/tickets.json</span> with an export from Zendesk, Intercom or a shared inbox.</li>
+          <li>Run weekly to watch the gap score fall as articles ship.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>Built with the Claude API. Tickets are fictional; the documentation belongs to Anthropic.</footer>
+</div>
+<div class="tip" id="tip" hidden></div>
+
+<script>
+const DATA = /*DATA*/null;
+const ARTICLE_HTML = /*ARTICLE*/"";
+const S = DATA.summary;
+const $ = (s) => document.querySelector(s);
+const esc = (s) => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const topicById = Object.fromEntries(DATA.topics.map(t => [t.topic_id, t]));
+const biggest = DATA.topics[0];
+
+$("#headline").textContent = `${S.missing} of ${S.tickets} support tickets had no help article that answered them. One new article cuts that to ${S.missing_after}.`;
+$("#lede").textContent = `This tool reads a week of support tickets, groups them by topic, and checks each one against ${S.doc_pages.toLocaleString()} pages of public documentation. It then drafts the article that would close the biggest gap.`;
+$("#tiles").innerHTML = [
+  [`${S.missing_pct}%`, `of tickets had no matching doc, and ${S.weak_pct}% had weak or no coverage`],
+  [`${S.missing_fixed_by_article}<small> of ${S.missing}</small>`, `unanswered tickets are answered by the new article (${S.share_of_missing_fixed_pct}%)`],
+  [`${S.missing_pct}% → ${S.missing_after_pct}%`, `tickets with no matching doc, before and after the article`],
+].map(([n, c]) => `<div class="tile"><span class="num">${n}</span><span class="cap">${c}</span></div>`).join("");
+
+/* inbox */
+const CH = { email: "Email", web_form: "Web form", in_app: "In-app" };
+const fmt = (iso) => { const d = new Date(iso); return d.toLocaleString("en-US", { weekday: "short", hour: "2-digit", minute: "2-digit", hour12: false, timeZone: "UTC" }); };
+let filter = "all", shown = DATA.tickets.length, timer = null;
+function rowHTML(t) {
+  const fixed = t.fixed_by_article ? `<span class="pill fixed">Fixed by draft</span>` : "";
+  const doc = t.doc_url ? `<a href="${esc(t.doc_url)}" target="_blank" rel="noopener">Doc checked</a>. ` : "";
+  return `<div class="trow" role="listitem" tabindex="0" data-id="${t.id}">
+    <span class="when">${fmt(t.received_at)}</span>
+    <span class="chan">${CH[t.channel] || t.channel}</span>
+    <div class="subj"><b>${esc(t.subject)}</b> <span class="from">· ${esc(t.from_name)} · ${esc(t.plan)} · <span class="mono">${t.id}</span></span><div class="body">${esc(t.body)}</div></div>
+    <span style="display:grid;gap:4px;justify-items:end"><span class="pill ${t.coverage}">${t.coverage[0].toUpperCase() + t.coverage.slice(1)}</span>${fixed}</span>
+    <div class="detail" hidden><b>${esc(topicById[t.topic_id].label)}.</b> ${esc(t.reason)} ${doc}</div>
+  </div>`;
+}
+function renderInbox(animateLast) {
+  const list = DATA.tickets.slice(0, shown).filter(t => filter === "all" || t.coverage === filter).reverse();
+  $("#inbox").innerHTML = list.map(rowHTML).join("");
+  if (animateLast && list[0]) $("#inbox").firstElementChild.classList.add("arriving");
+  $("#counter").textContent = `${shown} of ${DATA.tickets.length} received · ${list.length} shown`;
+}
+$("#inbox").addEventListener("click", e => { const r = e.target.closest(".trow"); if (r && !e.target.closest("a")) r.querySelector(".detail").hidden ^= true; });
+$("#inbox").addEventListener("keydown", e => { if (e.key === "Enter") { const r = e.target.closest(".trow"); if (r) r.querySelector(".detail").hidden ^= true; } });
+document.querySelectorAll("[data-f]").forEach(b => b.addEventListener("click", () => {
+  filter = b.dataset.f;
+  document.querySelectorAll("[data-f]").forEach(x => x.setAttribute("aria-pressed", x === b));
+  renderInbox(false);
+}));
+$("#replay").addEventListener("click", () => {
+  clearInterval(timer); shown = 0; $("#replay").textContent = "Replaying…";
+  timer = setInterval(() => {
+    shown++; renderInbox(true);
+    if (shown >= DATA.tickets.length) { clearInterval(timer); $("#replay").textContent = "Replay the week"; }
+  }, 90);
+});
+renderInbox(false);
+
+/* gaps */
+const tip = $("#tip");
+$("#gaps").innerHTML = DATA.topics.map((t, i) => {
+  const seg = (cls, n, name) => n ? `<span class="${cls}" style="flex:${n}" data-tip="${name}: ${n} of ${t.tickets} tickets"></span>` : "";
+  const tks = DATA.tickets.filter(x => x.topic_id === t.topic_id).map(x => `<div class="tk"><span class="pill ${x.coverage}">${x.coverage}</span><div><b>${esc(x.subject)}</b> <span class="muted mono" style="font-size:12px">${x.id}</span><div class="why">${esc(x.reason)} ${x.doc_url ? `<a href="${esc(x.doc_url)}" target="_blank" rel="noopener">Open doc</a>` : ""}</div></div></div>`).join("");
+  const docs = t.docs_checked.slice(0, 4).map(d => `<a href="${esc(d.url)}" target="_blank" rel="noopener">${esc(d.title)}</a>`).join(", ");
+  return `<details class="gap"><summary>
+    <span class="rank">${i + 1}</span>
+    <span class="lbl">${esc(t.label)}<small>${t.tickets} tickets · ${t.coverage_pct}% coverage</small></span>
+    <span class="bar" style="width:${(t.tickets / DATA.topics.reduce((m, x) => Math.max(m, x.tickets), 0)) * 100}%">${seg("c", t.covered, "Covered")}${seg("p", t.partial, "Partial")}${seg("m", t.missing, "Missing")}</span>
+    <span class="score">${t.gap_score.toFixed(1)}</span>
+  </summary><div class="tickets">${tks}<div class="docs">Closest docs checked: ${docs}</div></div></details>`;
+}).join("");
+$("#gaps").addEventListener("mousemove", e => {
+  const s = e.target.closest("[data-tip]");
+  if (!s) { tip.hidden = true; return; }
+  tip.textContent = s.dataset.tip; tip.hidden = false;
+  tip.style.left = Math.min(e.clientX + 12, innerWidth - 200) + "px"; tip.style.top = (e.clientY + 14) + "px";
+});
+$("#gaps").addEventListener("mouseleave", () => tip.hidden = true);
+$("#gaps").firstElementChild.open = true;
+
+/* fix */
+$("#fix-sub").textContent = `"${biggest.label}" had ${biggest.tickets} tickets and no article answered ${biggest.missing} of them. Claude drafted this article from the tickets and the related docs.`;
+$("#article").innerHTML = ARTICLE_HTML;
+$("#qs").innerHTML = DATA.article.open_questions.map(q => `<li>${esc(q)}</li>`).join("");
+const bars = [
+  ["Tickets with no matching doc", S.missing, S.missing_after],
+  ["Tickets with weak or no coverage", S.partial + S.missing, Math.round(S.weak_after_pct * S.tickets / 100)],
+];
+$("#ba").innerHTML = bars.map(([label, b, a]) => `<div class="ba-row">
+  <div class="t"><span>${label}</span><b>${b} → ${a}</b></div>
+  <div class="track" title="Before ${b}, after ${a} of ${S.tickets}"><span class="before" style="width:${b}%"></span><span class="after" style="width:${a}%"></span></div>
+</div>`).join("") + `<p class="muted" style="font-size:13px">Out of ${S.tickets} tickets. The faded bar is before, the solid bar is after. The draft answers all ${biggest.tickets} tickets in its topic once the highlighted questions are filled in.</p>`;
+
+$("#docmeta").textContent = `${S.doc_pages} pages from ${DATA.doc_sites.join(", ")}, crawled ${DATA.crawled_on}.`;
+$("#modeline").innerHTML = DATA.mode.startsWith("live")
+  ? `<b>Claude did the grouping and judging</b> through the API (${esc(DATA.mode)}).`
+  : `<b>Claude did the grouping and judging</b> inside a Claude Code session, because no API key was set for this run. With <span class="mono">ANTHROPIC_API_KEY</span> set, <span class="mono">find_gaps.py</span> makes the same calls through the API.`;
+</script>

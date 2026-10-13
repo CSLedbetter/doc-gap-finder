@@ -1,0 +1,7 @@
+.env*
+!.env.example
+__pycache__/
+.vercel
+.DS_Store
+data/helpdesk.db
+data/docs_index.jsonl

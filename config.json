@@ -1,0 +1,22 @@
+{
+  "product": "Claude (Claude.ai apps, Claude API, Claude Code)",
+  "model": "claude-opus-5-5",
+  "doc_sites": [
+    {
+      "name": "Help Center",
+      "sitemap": "https://support.claude.com/sitemap.xml",
+      "include": "support\\.claude\\.com/en/articles/"
+    },
+    {
+      "name": "Claude Code docs",
+      "sitemap": "https://code.claude.com/docs/sitemap.xml",
+      "include": "/docs/en/"
+    },
+    {
+      "name": "Developer docs",
+      "sitemap": "https://platform.claude.com/sitemap.xml",
+      "include": "/docs/en/",
+      "exclude": "/docs/en/api/(python|typescript|java|go|ruby|csharp|php|cli|kotlin|terraform|beta|admin|messages|models|files|skills|completions|agents|sessions|environments|vaults|memory)"
+    }
+  ]
+}

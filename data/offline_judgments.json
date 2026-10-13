@@ -1,0 +1,1159 @@
+{
+ "cluster": {
+  "topics": [
+   {
+    "topic_id": "t1",
+    "label": "Moving to a lower plan or billing period",
+    "description": "Customers on Max 20x, Max 5x or annual Pro who want to move down a tier or switch to monthly billing, and want to know how, when it takes effect, and what happens to money, credits and their work.",
+    "ticket_ids": [
+     "TCK-1010",
+     "TCK-1012",
+     "TCK-1022",
+     "TCK-1027",
+     "TCK-1048",
+     "TCK-1070",
+     "TCK-1083",
+     "TCK-1086",
+     "TCK-1087",
+     "TCK-1090",
+     "TCK-1093",
+     "TCK-1095",
+     "TCK-1096"
+    ]
+   },
+   {
+    "topic_id": "t2",
+    "label": "Understanding usage limits and resets",
+    "description": "Why limits run out, how the 5-hour and weekly limits relate, when they reset, and how to get more usage.",
+    "ticket_ids": [
+     "TCK-1007",
+     "TCK-1011",
+     "TCK-1025",
+     "TCK-1029",
+     "TCK-1041",
+     "TCK-1046",
+     "TCK-1066",
+     "TCK-1069",
+     "TCK-1076",
+     "TCK-1099"
+    ]
+   },
+   {
+    "topic_id": "t3",
+    "label": "Getting a refund",
+    "description": "Refund requests for web, iOS and Android purchases, EU cooling-off refunds, disputes and upgrades to Team.",
+    "ticket_ids": [
+     "TCK-1002",
+     "TCK-1015",
+     "TCK-1017",
+     "TCK-1040",
+     "TCK-1054",
+     "TCK-1075",
+     "TCK-1088"
+    ]
+   },
+   {
+    "topic_id": "t4",
+    "label": "Trouble logging in",
+    "description": "Login emails not arriving, codes on a second device, Google sign-in loops, Hide My Email, and passwords.",
+    "ticket_ids": [
+     "TCK-1001",
+     "TCK-1028",
+     "TCK-1043",
+     "TCK-1045",
+     "TCK-1057",
+     "TCK-1063",
+     "TCK-1082"
+    ]
+   },
+   {
+    "topic_id": "t5",
+    "label": "Claude Code billing to the API instead of my plan",
+    "description": "Claude Code using an API key or Console account instead of the customer's Pro or Max subscription.",
+    "ticket_ids": [
+     "TCK-1024",
+     "TCK-1033",
+     "TCK-1056",
+     "TCK-1061",
+     "TCK-1064",
+     "TCK-1068",
+     "TCK-1100"
+    ]
+   },
+   {
+    "topic_id": "t6",
+    "label": "Missing or deleted chats",
+    "description": "Chats that disappeared, were deleted by mistake, or don't show on another device or account.",
+    "ticket_ids": [
+     "TCK-1016",
+     "TCK-1018",
+     "TCK-1021",
+     "TCK-1023",
+     "TCK-1026",
+     "TCK-1051",
+     "TCK-1092",
+     "TCK-1098"
+    ]
+   },
+   {
+    "topic_id": "t7",
+    "label": "Account security and two-factor login",
+    "description": "2FA and passkeys, unrecognized sessions, signing out everywhere, and suspected account compromise.",
+    "ticket_ids": [
+     "TCK-1039",
+     "TCK-1049",
+     "TCK-1062",
+     "TCK-1079",
+     "TCK-1084",
+     "TCK-1085"
+    ]
+   },
+   {
+    "topic_id": "t8",
+    "label": "Phone verification problems",
+    "description": "SMS codes not arriving or not working, numbers already used, VoIP numbers, and changing the verified number.",
+    "ticket_ids": [
+     "TCK-1013",
+     "TCK-1034",
+     "TCK-1044",
+     "TCK-1047",
+     "TCK-1052",
+     "TCK-1053"
+    ]
+   },
+   {
+    "topic_id": "t9",
+    "label": "API rate limits and 429 errors",
+    "description": "Hitting rate limits, finding the current tier, rate limit headers, and getting higher limits.",
+    "ticket_ids": [
+     "TCK-1031",
+     "TCK-1037",
+     "TCK-1058",
+     "TCK-1089",
+     "TCK-1094"
+    ]
+   },
+   {
+    "topic_id": "t10",
+    "label": "API overloaded errors and timeouts",
+    "description": "529 overloaded errors, retry strategy, status page, and long-request timeouts.",
+    "ticket_ids": [
+     "TCK-1032",
+     "TCK-1059",
+     "TCK-1077",
+     "TCK-1080"
+    ]
+   },
+   {
+    "topic_id": "t11",
+    "label": "Taking over a Team plan when the owner is gone",
+    "description": "The Primary Owner has left or can't be reached, so nobody can manage billing or ownership.",
+    "ticket_ids": [
+     "TCK-1014",
+     "TCK-1019",
+     "TCK-1065",
+     "TCK-1074",
+     "TCK-1091"
+    ]
+   },
+   {
+    "topic_id": "t12",
+    "label": "Vendor paperwork: tax forms, security reports and DPA",
+    "description": "Procurement and finance teams asking for W-9, tax residency, SOC 2, security questionnaires and the DPA.",
+    "ticket_ids": [
+     "TCK-1005",
+     "TCK-1006",
+     "TCK-1009",
+     "TCK-1020",
+     "TCK-1060"
+    ]
+   },
+   {
+    "topic_id": "t13",
+    "label": "Moving from App Store or Google Play billing to the web",
+    "description": "Mobile subscribers who want web billing for invoices, card payment or the web price.",
+    "ticket_ids": [
+     "TCK-1004",
+     "TCK-1042",
+     "TCK-1050",
+     "TCK-1081",
+     "TCK-1097"
+    ]
+   },
+   {
+    "topic_id": "t14",
+    "label": "Invoice details",
+    "description": "Company name, VAT ID, corrections to past invoices, and multiple receipts.",
+    "ticket_ids": [
+     "TCK-1035",
+     "TCK-1038",
+     "TCK-1071",
+     "TCK-1078"
+    ]
+   },
+   {
+    "topic_id": "t15",
+    "label": "Installing, updating and signing in to Claude Code",
+    "description": "Command not found, Windows install, updates, and staying signed in to the VS Code extension.",
+    "ticket_ids": [
+     "TCK-1008",
+     "TCK-1030",
+     "TCK-1055",
+     "TCK-1072"
+    ]
+   },
+   {
+    "topic_id": "t16",
+    "label": "API credits and auto-reload",
+    "description": "Purchased credits not showing or not applying, auto-reload, and credit expiry.",
+    "ticket_ids": [
+     "TCK-1003",
+     "TCK-1036",
+     "TCK-1067",
+     "TCK-1073"
+    ]
+   }
+  ]
+ },
+ "coverage": {
+  "t1": {
+   "verdicts": [
+    {
+     "ticket_id": "TCK-1010",
+     "coverage": "missing",
+     "doc_url": null,
+     "reason": "The cancel article explains ending a plan but nothing says how to move from Max to Pro or whether projects survive the change."
+    },
+    {
+     "ticket_id": "TCK-1012",
+     "coverage": "missing",
+     "doc_url": null,
+     "reason": "No article explains how to move from Max 20x to Max 5x; the Max articles only cover upgrading, and Billing settings show Cancel."
+    },
+    {
+     "ticket_id": "TCK-1022",
+     "coverage": "missing",
+     "doc_url": null,
+     "reason": "No doc says when a downgrade takes effect or whether the price difference is refunded or credited."
+    },
+    {
+     "ticket_id": "TCK-1027",
+     "coverage": "partial",
+     "doc_url": "https://support.claude.com/en/articles/11049752-how-do-i-sign-up-for-the-max-plan",
+     "reason": "Upgrade proration is documented, so the re-upgrade half is answered, but nothing says whether downgrading has a fee."
+    },
+    {
+     "ticket_id": "TCK-1048",
+     "coverage": "missing",
+     "doc_url": null,
+     "reason": "Only the monthly-to-annual direction has an article; switching annual Pro to monthly is not documented."
+    },
+    {
+     "ticket_id": "TCK-1070",
+     "coverage": "partial",
+     "doc_url": "https://support.claude.com/en/articles/17154008-monthly-api-credits-for-max-and-team-plans",
+     "reason": "The credits article covers downgrading to an ineligible plan, but not a Max 20x to Max 5x change or when the lower amount starts."
+    },
+    {
+     "ticket_id": "TCK-1083",
+     "coverage": "partial",
+     "doc_url": "https://support.claude.com/en/articles/8325617-cancel-your-pro-or-max-subscription",
+     "reason": "The cancel article says iOS subscriptions are managed in the app under Billing > Manage subscription, but never mentions changing tiers there."
+    },
+    {
+     "ticket_id": "TCK-1086",
+     "coverage": "partial",
+     "doc_url": "https://support.claude.com/en/articles/8325617-cancel-your-pro-or-max-subscription",
+     "reason": "Cancelling at least 24 hours before renewal avoids the annual charge, but switching to monthly billing at renewal is not covered."
+    },
+    {
+     "ticket_id": "TCK-1087",
+     "coverage": "missing",
+     "doc_url": null,
+     "reason": "Nothing explains moving from Max to Pro or whether usage limits drop immediately."
+    },
+    {
+     "ticket_id": "TCK-1090",
+     "coverage": "missing",
+     "doc_url": null,
+     "reason": "Proration is documented for upgrades only; downgrade proration is not mentioned."
+    },
+    {
+     "ticket_id": "TCK-1093",
+     "coverage": "missing",
+     "doc_url": null,
+     "reason": "There is no self-serve downgrade guide, so the customer asks support to do it for them."
+    },
+    {
+     "ticket_id": "TCK-1095",
+     "coverage": "missing",
+     "doc_url": null,
+     "reason": "No doc says whether Claude Code sessions or Cowork tasks are kept after moving to a lower plan."
+    },
+    {
+     "ticket_id": "TCK-1096",
+     "coverage": "missing",
+     "doc_url": null,
+     "reason": "No doc says whether downgrading is possible or whether cancelling is the only route."
+    }
+   ]
+  },
+  "t2": {
+   "verdicts": [
+    {
+     "ticket_id": "TCK-1007",
+     "coverage": "covered",
+     "doc_url": "https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work",
+     "reason": "The usage limits article says model choice and effort level affect how fast usage is used."
+    },
+    {
+     "ticket_id": "TCK-1011",
+     "coverage": "covered",
+     "doc_url": "https://support.claude.com/en/articles/17007452-what-is-a-limit-reset",
+     "reason": "The limit reset article explains what a reset is and how to use it in Settings > Usage."
+    },
+    {
+     "ticket_id": "TCK-1025",
+     "coverage": "covered",
+     "doc_url": "https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work",
+     "reason": "The article explains the five-hour session limit and the separate weekly limit."
+    },
+    {
+     "ticket_id": "TCK-1029",
+     "coverage": "covered",
+     "doc_url": "https://support.claude.com/en/articles/9797557-usage-limit-best-practices",
+     "reason": "Best practices lists attachment size as a factor and suggests projects, whose content is cached."
+    },
+    {
+     "ticket_id": "TCK-1041",
+     "coverage": "covered",
+     "doc_url": "https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work",
+     "reason": "The article says longer conversations use more of your limit and suggests starting a new chat."
+    },
+    {
+     "ticket_id": "TCK-1046",
+     "coverage": "covered",
+     "doc_url": "https://support.claude.com/en/articles/9797557-usage-limit-best-practices",
+     "reason": "Best practices lists the factors (length, attachments, tools, model) that make limits run out quickly."
+    },
+    {
+     "ticket_id": "TCK-1066",
+     "coverage": "covered",
+     "doc_url": "https://support.claude.com/en/articles/12429409-manage-usage-credits-for-paid-claude-plans",
+     "reason": "Usage credits let Pro subscribers keep going past their limit without upgrading."
+    },
+    {
+     "ticket_id": "TCK-1069",
+     "coverage": "covered",
+     "doc_url": "https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work",
+     "reason": "The article says Claude.ai, Claude Code and Claude Desktop count toward the same limit."
+    },
+    {
+     "ticket_id": "TCK-1076",
+     "coverage": "partial",
+     "doc_url": "https://support.claude.com/en/articles/9797557-usage-limit-best-practices",
+     "reason": "Settings > Usage shows time left in the session, but no doc says which time zone the reset time uses or whether it is fixed daily."
+    },
+    {
+     "ticket_id": "TCK-1099",
+     "coverage": "partial",
+     "doc_url": "https://support.claude.com/en/articles/9797557-usage-limit-best-practices",
+     "reason": "Docs say free usage varies but give no number, so the customer's question is not answered."
+    }
+   ]
+  },
+  "t3": {
+   "verdicts": [
+    {
+     "ticket_id": "TCK-1002",
+     "coverage": "covered",
+     "doc_url": "https://support.claude.com/en/articles/12386328-request-a-refund-for-a-paid-claude-plan",
+     "reason": "The refund article covers the 14-day EEA and UK refund and where to find it in Settings."
+    },
+    {
+     "ticket_id": "TCK-1015",
+     "coverage": "covered",
+     "doc_url": "https://support.claude.com/en/articles/12386328-request-a-refund-for-a-paid-claude-plan",
+     "reason": "The refund article explains that App Store purchases are refunded by Apple and links the steps."
+    },
+    {
+     "ticket_id": "TCK-1017",
+     "coverage": "covered",
+     "doc_url": "https://support.claude.com/en/articles/12386328-request-a-refund-for-a-paid-claude-plan",
+     "reason": "The article says upgrading to Team triggers an automatic prorated refund about 24 hours later."
+    },
+    {
+     "ticket_id": "TCK-1040",
+     "coverage": "covered",
+     "doc_url": "https://support.claude.com/en/articles/12386328-request-a-refund-for-a-paid-claude-plan",
+     "reason": "The article covers contacting support from another email and cc-ing the locked account."
+    },
+    {
+     "ticket_id": "TCK-1054",
+     "coverage": "covered",
+     "doc_url": "https://support.claude.com/en/articles/12386328-request-a-refund-for-a-paid-claude-plan",
+     "reason": "The article walks through the refund request flow in Get help."
+    },
+    {
+     "ticket_id": "TCK-1075",
+     "coverage": "covered",
+     "doc_url": "https://support.claude.com/en/articles/12386328-request-a-refund-for-a-paid-claude-plan",
+     "reason": "The article covers Google Play refunds for inactive subscriptions using the GPA order number."
+    },
+    {
+     "ticket_id": "TCK-1088",
+     "coverage": "covered",
+     "doc_url": "https://support.claude.com/en/articles/12386328-request-a-refund-for-a-paid-claude-plan",
+     "reason": "The article explains refunds can't be processed during a dispute and how to withdraw it."
+    }
+   ]
+  },
+  "t4": {
+   "verdicts": [
+    {
+     "ticket_id": "TCK-1001",
+     "coverage": "covered",
+     "doc_url": "https://support.claude.com/en/articles/13189465-log-in-to-your-claude-account",
+     "reason": "The login article says Claude accounts don't support passwords."
+    },
+    {
+     "ticket_id": "TCK-1028",
+     "coverage": "covered",
+     "doc_url": "https://support.claude.com/en/articles/13189465-log-in-to-your-claude-account",
+     "reason": "The article covers allowlisting @mail.anthropic.com and asking IT about email security."
+    },
+    {
+     "ticket_id": "TCK-1043",
+     "coverage": "covered",
+     "doc_url": "https://support.claude.com/en/articles/13189465-log-in-to-your-claude-account",
+     "reason": "The article explains removing Claude from Google account connections and trying again."
+    },
+    {
+     "ticket_id": "TCK-1045",
+     "coverage": "covered",
+     "doc_url": "https://support.claude.com/en/articles/13189465-log-in-to-your-claude-account",
+     "reason": "The article explains the verification code shown when the link is opened on another device."
+    },
+    {
+     "ticket_id": "TCK-1057",
+     "coverage": "partial",
+     "doc_url": "https://support.claude.com/en/articles/13189465-log-in-to-your-claude-account",
+     "reason": "The article covers trouble with the link in general but doesn't say how long a login link stays valid."
+    },
+    {
+     "ticket_id": "TCK-1063",
+     "coverage": "covered",
+     "doc_url": "https://support.claude.com/en/articles/13189465-log-in-to-your-claude-account",
+     "reason": "The article has a section on Hide My Email accounts."
+    },
+    {
+     "ticket_id": "TCK-1082",
+     "coverage": "covered",
+     "doc_url": "https://support.claude.com/en/articles/13189465-log-in-to-your-claude-account",
+     "reason": "The article lists spam, quarantine and allowlist steps for missing login emails."
+    }
+   ]
+  },
+  "t5": {
+   "verdicts": [
+    {
+     "ticket_id": "TCK-1024",
+     "coverage": "covered",
+     "doc_url": "https://support.claude.com/en/articles/12304248-manage-api-key-environment-variables-in-claude-code",
+     "reason": "The env var article explains that a set ANTHROPIC_API_KEY overrides the subscription login."
+    },
+    {
+     "ticket_id": "TCK-1033",
+     "coverage": "covered",
+     "doc_url": "https://support.claude.com/en/articles/12304248-manage-api-key-environment-variables-in-claude-code",
+     "reason": "The article says to run /status to check the current authentication method."
+    },
+    {
+     "ticket_id": "TCK-1056",
+     "coverage": "covered",
+     "doc_url": "https://support.claude.com/en/articles/12304248-manage-api-key-environment-variables-in-claude-code",
+     "reason": "The article says to unset ANTHROPIC_API_KEY to use the subscription."
+    },
+    {
+     "ticket_id": "TCK-1061",
+     "coverage": "covered",
+     "doc_url": "https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan",
+     "reason": "The article explains switching from Console billing to the plan with /login."
+    },
+    {
+     "ticket_id": "TCK-1064",
+     "coverage": "covered",
+     "doc_url": "https://support.claude.com/en/articles/12304248-manage-api-key-environment-variables-in-claude-code",
+     "reason": "The article explains why Claude Code bills the API when a key is set."
+    },
+    {
+     "ticket_id": "TCK-1068",
+     "coverage": "covered",
+     "doc_url": "https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan",
+     "reason": "The article covers declining the API credit option and logging in with plan credentials only."
+    },
+    {
+     "ticket_id": "TCK-1100",
+     "coverage": "covered",
+     "doc_url": "https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan",
+     "reason": "The article says to log in with the same credentials you use for Claude."
+    }
+   ]
+  },
+  "t6": {
+   "verdicts": [
+    {
+     "ticket_id": "TCK-1016",
+     "coverage": "missing",
+     "doc_url": null,
+     "reason": "No troubleshooting article covers chats that show on the web but not in the mobile app."
+    },
+    {
+     "ticket_id": "TCK-1018",
+     "coverage": "missing",
+     "doc_url": null,
+     "reason": "No article covers an empty chat list or what to check first."
+    },
+    {
+     "ticket_id": "TCK-1021",
+     "coverage": "partial",
+     "doc_url": "https://support.claude.com/en/articles/8230524-delete-or-rename-a-conversation",
+     "reason": "The delete article covers conversations, not projects, and doesn't say whether there is an undo."
+    },
+    {
+     "ticket_id": "TCK-1023",
+     "coverage": "partial",
+     "doc_url": "https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context",
+     "reason": "Chat search can find past chats, but nothing explains why a chat would leave the list."
+    },
+    {
+     "ticket_id": "TCK-1026",
+     "coverage": "missing",
+     "doc_url": null,
+     "reason": "No doc covers a conversation disappearing after a page refresh."
+    },
+    {
+     "ticket_id": "TCK-1051",
+     "coverage": "partial",
+     "doc_url": "https://support.claude.com/en/articles/8230524-delete-or-rename-a-conversation",
+     "reason": "The article says deletion is immediate but never says plainly that a deleted chat can't be restored."
+    },
+    {
+     "ticket_id": "TCK-1092",
+     "coverage": "covered",
+     "doc_url": "https://support.claude.com/en/articles/9267400-move-your-personal-claude-account-to-a-team-or-enterprise-organization",
+     "reason": "The article explains that personal and Team accounts are separate and how to switch or move your history."
+    },
+    {
+     "ticket_id": "TCK-1098",
+     "coverage": "partial",
+     "doc_url": "https://support.claude.com/en/articles/8230524-delete-or-rename-a-conversation",
+     "reason": "The article mentions 30-day back-end deletion, which invites this question, but doesn't say whether support can restore anything."
+    }
+   ]
+  },
+  "t7": {
+   "verdicts": [
+    {
+     "ticket_id": "TCK-1039",
+     "coverage": "covered",
+     "doc_url": "https://support.claude.com/en/articles/10310342-how-do-i-log-out-of-all-active-sessions",
+     "reason": "There is an article on logging out of all active sessions."
+    },
+    {
+     "ticket_id": "TCK-1049",
+     "coverage": "partial",
+     "doc_url": "https://support.claude.com/en/articles/13132885-set-up-single-sign-on-sso",
+     "reason": "SSO lets an identity provider enforce MFA, but no doc says whether Team plans can require MFA without SSO."
+    },
+    {
+     "ticket_id": "TCK-1062",
+     "coverage": "missing",
+     "doc_url": null,
+     "reason": "No doc says whether Claude accounts support two-factor authentication."
+    },
+    {
+     "ticket_id": "TCK-1079",
+     "coverage": "partial",
+     "doc_url": "https://support.claude.com/en/articles/13124001-managing-your-active-sessions",
+     "reason": "Session management covers revoking unknown sessions but not what to do after a suspected compromise or how to report it."
+    },
+    {
+     "ticket_id": "TCK-1084",
+     "coverage": "covered",
+     "doc_url": "https://support.claude.com/en/articles/13124001-managing-your-active-sessions",
+     "reason": "The sessions article explains how to terminate an unfamiliar session."
+    },
+    {
+     "ticket_id": "TCK-1085",
+     "coverage": "missing",
+     "doc_url": null,
+     "reason": "Authenticator apps and passkeys are not mentioned anywhere."
+    }
+   ]
+  },
+  "t8": {
+   "verdicts": [
+    {
+     "ticket_id": "TCK-1013",
+     "coverage": "covered",
+     "doc_url": "https://support.claude.com/en/articles/8287232-verify-your-phone-number",
+     "reason": "The phone article says the verified number can't be changed."
+    },
+    {
+     "ticket_id": "TCK-1034",
+     "coverage": "covered",
+     "doc_url": "https://support.claude.com/en/articles/8287232-verify-your-phone-number",
+     "reason": "The article covers codes that don't arrive and trying a different number."
+    },
+    {
+     "ticket_id": "TCK-1044",
+     "coverage": "covered",
+     "doc_url": "https://support.claude.com/en/articles/8287232-verify-your-phone-number",
+     "reason": "The article says VoIP and Google Voice numbers aren't accepted and there's no workaround."
+    },
+    {
+     "ticket_id": "TCK-1047",
+     "coverage": "covered",
+     "doc_url": "https://support.claude.com/en/articles/8287232-verify-your-phone-number",
+     "reason": "The article says there is no way to skip phone verification."
+    },
+    {
+     "ticket_id": "TCK-1052",
+     "coverage": "covered",
+     "doc_url": "https://support.claude.com/en/articles/8287232-verify-your-phone-number",
+     "reason": "The article explains codes are temporary and to use the most recent one."
+    },
+    {
+     "ticket_id": "TCK-1053",
+     "coverage": "covered",
+     "doc_url": "https://support.claude.com/en/articles/8287232-verify-your-phone-number",
+     "reason": "The article explains the three-account limit per number and how to get it unlinked."
+    }
+   ]
+  },
+  "t9": {
+   "verdicts": [
+    {
+     "ticket_id": "TCK-1031",
+     "coverage": "covered",
+     "doc_url": "https://platform.claude.com/docs/en/api/rate-limits",
+     "reason": "The rate limits page explains usage tiers and how to advance."
+    },
+    {
+     "ticket_id": "TCK-1037",
+     "coverage": "covered",
+     "doc_url": "https://platform.claude.com/docs/en/api/rate-limits",
+     "reason": "The page lists the anthropic-ratelimit response headers."
+    },
+    {
+     "ticket_id": "TCK-1058",
+     "coverage": "covered",
+     "doc_url": "https://platform.claude.com/docs/en/api/rate-limits",
+     "reason": "The page says to contact sales for custom limits."
+    },
+    {
+     "ticket_id": "TCK-1089",
+     "coverage": "covered",
+     "doc_url": "https://platform.claude.com/docs/en/api/rate-limits",
+     "reason": "The page explains 429s and how tiers increase."
+    },
+    {
+     "ticket_id": "TCK-1094",
+     "coverage": "covered",
+     "doc_url": "https://platform.claude.com/docs/en/api/rate-limits",
+     "reason": "The page covers Message Batches limits separately."
+    }
+   ]
+  },
+  "t10": {
+   "verdicts": [
+    {
+     "ticket_id": "TCK-1032",
+     "coverage": "covered",
+     "doc_url": "https://platform.claude.com/docs/en/api/errors",
+     "reason": "The errors page explains 529 overloaded_error and SDK retries with backoff."
+    },
+    {
+     "ticket_id": "TCK-1059",
+     "coverage": "covered",
+     "doc_url": "https://support.claude.com/en/articles/12466728-troubleshoot-claude-error-messages",
+     "reason": "The error messages article points to status.claude.com for incidents."
+    },
+    {
+     "ticket_id": "TCK-1077",
+     "coverage": "covered",
+     "doc_url": "https://platform.claude.com/docs/en/api/errors",
+     "reason": "The errors page recommends streaming for long-running requests."
+    },
+    {
+     "ticket_id": "TCK-1080",
+     "coverage": "covered",
+     "doc_url": "https://platform.claude.com/docs/en/api/errors",
+     "reason": "The errors page defines 429 and 529 separately with retry guidance."
+    }
+   ]
+  },
+  "t11": {
+   "verdicts": [
+    {
+     "ticket_id": "TCK-1014",
+     "coverage": "missing",
+     "doc_url": null,
+     "reason": "Ownership transfer is documented only when the current Primary Owner does it; nothing covers an owner who has left."
+    },
+    {
+     "ticket_id": "TCK-1019",
+     "coverage": "missing",
+     "doc_url": null,
+     "reason": "No doc explains how an Admin can get Owner access when the owner is gone."
+    },
+    {
+     "ticket_id": "TCK-1065",
+     "coverage": "missing",
+     "doc_url": null,
+     "reason": "The members article requires the current Primary Owner to transfer ownership, with no alternative path."
+    },
+    {
+     "ticket_id": "TCK-1074",
+     "coverage": "partial",
+     "doc_url": "https://support.claude.com/en/articles/12997503-team-plan-billing-faqs",
+     "reason": "Team billing FAQs say the billing email can be changed on request, but not how to replace a former employee as Primary Owner."
+    },
+    {
+     "ticket_id": "TCK-1091",
+     "coverage": "missing",
+     "doc_url": null,
+     "reason": "No doc says what proof support needs to change an unreachable Primary Owner."
+    }
+   ]
+  },
+  "t12": {
+   "verdicts": [
+    {
+     "ticket_id": "TCK-1005",
+     "coverage": "missing",
+     "doc_url": null,
+     "reason": "No doc explains how to get a W-9."
+    },
+    {
+     "ticket_id": "TCK-1006",
+     "coverage": "covered",
+     "doc_url": "https://support.claude.com/en/articles/7996862-how-do-i-view-and-sign-your-data-processing-addendum-dpa",
+     "reason": "There is an article on viewing and signing the DPA."
+    },
+    {
+     "ticket_id": "TCK-1009",
+     "coverage": "missing",
+     "doc_url": null,
+     "reason": "No doc covers tax residency certificates or W-8 forms."
+    },
+    {
+     "ticket_id": "TCK-1020",
+     "coverage": "partial",
+     "doc_url": "https://support.claude.com/en/articles/10015870-what-certifications-has-anthropic-obtained",
+     "reason": "The certifications article points to the Trust Portal for SOC 2, but not how to get a custom security questionnaire completed."
+    },
+    {
+     "ticket_id": "TCK-1060",
+     "coverage": "missing",
+     "doc_url": null,
+     "reason": "No doc covers W-9s or bank detail letters for accounts payable."
+    }
+   ]
+  },
+  "t13": {
+   "verdicts": [
+    {
+     "ticket_id": "TCK-1004",
+     "coverage": "partial",
+     "doc_url": "https://support.claude.com/en/articles/8325617-cancel-your-pro-or-max-subscription",
+     "reason": "Docs say mobile prices may differ and explain cancelling, but not how to switch an existing subscription to web billing."
+    },
+    {
+     "ticket_id": "TCK-1042",
+     "coverage": "partial",
+     "doc_url": "https://support.claude.com/en/articles/8325617-cancel-your-pro-or-max-subscription",
+     "reason": "Cancelling keeps the plan until the period ends, but nothing says whether you can subscribe on the web right away without a gap."
+    },
+    {
+     "ticket_id": "TCK-1050",
+     "coverage": "covered",
+     "doc_url": "https://support.claude.com/en/articles/16607638-understanding-your-pro-or-max-plan-invoices",
+     "reason": "The invoices article says Apple bills App Store subscriptions and receipts come from your App Store account."
+    },
+    {
+     "ticket_id": "TCK-1081",
+     "coverage": "partial",
+     "doc_url": "https://support.claude.com/en/articles/8325618-paid-plan-billing-faqs",
+     "reason": "Docs say Google Play controls payment for app subscriptions, but give no steps to move to card billing on the web."
+    },
+    {
+     "ticket_id": "TCK-1097",
+     "coverage": "partial",
+     "doc_url": "https://support.claude.com/en/articles/16607638-understanding-your-pro-or-max-plan-invoices",
+     "reason": "Docs explain Apple issues the invoices, but not how to move the subscription to web billing."
+    }
+   ]
+  },
+  "t14": {
+   "verdicts": [
+    {
+     "ticket_id": "TCK-1035",
+     "coverage": "covered",
+     "doc_url": "https://support.claude.com/en/articles/16607638-understanding-your-pro-or-max-plan-invoices",
+     "reason": "The invoices article covers \"Use a different name on invoices\"."
+    },
+    {
+     "ticket_id": "TCK-1038",
+     "coverage": "covered",
+     "doc_url": "https://support.claude.com/en/articles/16607638-understanding-your-pro-or-max-plan-invoices",
+     "reason": "The article explains separate receipts for usage credits."
+    },
+    {
+     "ticket_id": "TCK-1071",
+     "coverage": "covered",
+     "doc_url": "https://support.claude.com/en/articles/16607638-understanding-your-pro-or-max-plan-invoices",
+     "reason": "The article says issued invoices can't be edited or reissued."
+    },
+    {
+     "ticket_id": "TCK-1078",
+     "coverage": "covered",
+     "doc_url": "https://support.claude.com/en/articles/9927624-add-or-update-your-team-plan-s-tax-or-vat-id",
+     "reason": "There is an article on adding a Team plan VAT ID."
+    }
+   ]
+  },
+  "t15": {
+   "verdicts": [
+    {
+     "ticket_id": "TCK-1008",
+     "coverage": "covered",
+     "doc_url": "https://code.claude.com/docs/en/setup",
+     "reason": "Setup docs give native Windows PowerShell and CMD installers."
+    },
+    {
+     "ticket_id": "TCK-1030",
+     "coverage": "partial",
+     "doc_url": "https://code.claude.com/docs/en/authentication",
+     "reason": "The authentication page explains logins and credential expiry in general, but not repeated sign-in prompts in VS Code."
+    },
+    {
+     "ticket_id": "TCK-1055",
+     "coverage": "covered",
+     "doc_url": "https://code.claude.com/docs/en/troubleshoot-install",
+     "reason": "The install troubleshooting page covers PATH fixes for command not found."
+    },
+    {
+     "ticket_id": "TCK-1072",
+     "coverage": "covered",
+     "doc_url": "https://code.claude.com/docs/en/setup",
+     "reason": "Setup docs cover updates and claude update."
+    }
+   ]
+  },
+  "t16": {
+   "verdicts": [
+    {
+     "ticket_id": "TCK-1003",
+     "coverage": "covered",
+     "doc_url": "https://support.claude.com/en/articles/8977456-how-do-i-pay-for-my-claude-api-usage",
+     "reason": "The billing article says purchased credits expire one year after purchase."
+    },
+    {
+     "ticket_id": "TCK-1036",
+     "coverage": "covered",
+     "doc_url": "https://support.claude.com/en/articles/8977456-how-do-i-pay-for-my-claude-api-usage",
+     "reason": "The billing article explains auto-reload setup."
+    },
+    {
+     "ticket_id": "TCK-1067",
+     "coverage": "partial",
+     "doc_url": "https://support.claude.com/en/articles/8977456-how-do-i-pay-for-my-claude-api-usage",
+     "reason": "Docs say purchased credits are available immediately but give no troubleshooting when the error persists."
+    },
+    {
+     "ticket_id": "TCK-1073",
+     "coverage": "partial",
+     "doc_url": "https://support.claude.com/en/articles/8977456-how-do-i-pay-for-my-claude-api-usage",
+     "reason": "Docs say where the balance appears but not what to do when a charge doesn't show up as credit."
+    }
+   ]
+  }
+ },
+ "article": {
+  "title": "Move to a lower plan or change your billing period",
+  "markdown": "# Move to a lower plan or change your billing period\n\nThis article explains how to move from Max 20x to Max 5x, from Max to Pro, or from annual to monthly Pro billing. It also covers what happens to your billing, usage limits, API credits, and work when you do.\n\n**Where you subscribed decides where you make the change.** If you subscribed on claude.ai or Claude Desktop, use Settings > Billing. If you subscribed in Claude for iOS or Claude for Android, the change happens through the App Store or Google Play.\n\n## Move to a lower plan on the web or Claude Desktop\n\n1. Click your initials or name in the lower left corner and select **Settings**.\n2. Go to **Settings > Billing**.\n3. Click **Adjust plan** next to your plan details. [CONFIRM: Is \"Adjust plan\" the entry point for moving down a tier? It is the button used for monthly-to-annual Pro changes.]\n4. Choose your new plan (Max 5x or Pro) and confirm.\n\n**If you don't see an option to move to a lower plan,** you can still get there in two steps:\n\n1. Cancel your current plan in **Settings > Billing** at least 24 hours before your next billing date. You keep your current plan until the end of the billing period.\n2. When the period ends, subscribe to the plan you want.\n\n## When the change takes effect\n\n[CONFIRM: Does a downgrade take effect immediately or at the next renewal date?]\n\nFor comparison, upgrades take effect right away: you're charged for one full cycle of the new plan, less the unused value of your old plan, and your billing cycle resets.\n\n## What happens to your money\n\n- **Fees:** [CONFIRM: There is no fee to move to a lower plan.]\n- **Unused value:** For some mid-cycle plan changes, one cycle of the new plan costs less than the value left on your current plan. When that happens, the difference is stored as a credit on your account and applied automatically to future invoices. It isn't refunded to your card.\n- **Coming back later:** If you upgrade again, you're charged for one full cycle of the higher plan, less the unused value of your current plan. There's no extra fee for upgrading.\n\n## What happens to your usage limits\n\n- Your usage limits match your new plan once the change takes effect. [CONFIRM: timing, as above.]\n- **Use any limit reset first.** If you have an unused limit reset, it's no longer available after you downgrade.\n- If you need more usage on a lower plan, you can turn on usage credits instead of moving back up.\n\n## What happens to your monthly API credits\n\n- **Max to Pro:** Pro isn't eligible for monthly API credits, so new credits stop. Credits you already have stay usable until they expire.\n- **Max 20x to Max 5x:** [CONFIRM: Does the next monthly grant drop from $200 to $100, and is any part of the current grant reduced?]\n\n## What happens to your chats, projects, and work\n\n[CONFIRM: Chats, projects, Claude Code sessions, and Cowork tasks stay on your account when you move to a lower plan.]\n\nPro and Max both include Claude Code and Cowork, so you can keep using them on Pro with Pro's usage limits.\n\n## Switch from annual to monthly Pro billing\n\n[CONFIRM: Can annual Pro subscribers choose monthly billing for their next renewal in Settings > Billing?]\n\nIf there's no option for it, cancel your annual plan at least 24 hours before your renewal date, keep using Pro until the year ends, and then subscribe to monthly Pro. The Max plan is only available with monthly billing.\n\n## If you subscribed in Claude for iOS or Claude for Android\n\nApple and Google manage subscriptions bought in the mobile apps.\n\n- **iOS:** Tap your initials, then **Billing > Manage subscription**. [CONFIRM: Are Pro and Max 5x listed as options in Apple's subscription screen?]\n- **Android:** Tap your initials, then **Billing > Manage subscription**. Google Play also lets you [change or pause a subscription](https://support.google.com/googleplay/answer/7018481).\n\n## Related articles\n\n- [Cancel your Pro or Max subscription](https://support.claude.com/en/articles/8325617-cancel-your-pro-or-max-subscription)\n- [Understanding your Pro or Max plan invoices](https://support.claude.com/en/articles/16607638-understanding-your-pro-or-max-plan-invoices)\n- [Monthly API credits for Max and Team plans](https://support.claude.com/en/articles/17154008-monthly-api-credits-for-max-and-team-plans)\n- [What is a limit reset?](https://support.claude.com/en/articles/17007452-what-is-a-limit-reset)\n- [Manage usage credits for paid Claude plans](https://support.claude.com/en/articles/12429409-manage-usage-credits-for-paid-claude-plans)\n",
+  "open_questions": [
+   "Is there a self-serve option in Settings > Billing to move down a tier, and what is the button called?",
+   "Does a downgrade take effect immediately or at the next renewal date?",
+   "Is there any fee to move to a lower plan?",
+   "When moving from Max 20x to Max 5x, when does the monthly API credit drop to $100?",
+   "Are chats, projects, Claude Code sessions, and Cowork tasks kept after a downgrade?",
+   "Can annual Pro subscribers switch to monthly billing at renewal without cancelling?",
+   "Can iOS subscribers move between Max and Pro in Apple's subscription screen?"
+  ]
+ },
+ "recheck": {
+  "verdicts": [
+   {
+    "ticket_id": "TCK-1010",
+    "coverage": "covered",
+    "doc_url": "new-article",
+    "reason": "The draft answers this directly once the [CONFIRM] items are filled in."
+   },
+   {
+    "ticket_id": "TCK-1012",
+    "coverage": "covered",
+    "doc_url": "new-article",
+    "reason": "The draft answers this directly once the [CONFIRM] items are filled in."
+   },
+   {
+    "ticket_id": "TCK-1022",
+    "coverage": "covered",
+    "doc_url": "new-article",
+    "reason": "The draft answers this directly once the [CONFIRM] items are filled in."
+   },
+   {
+    "ticket_id": "TCK-1027",
+    "coverage": "covered",
+    "doc_url": "new-article",
+    "reason": "The draft answers this directly once the [CONFIRM] items are filled in."
+   },
+   {
+    "ticket_id": "TCK-1048",
+    "coverage": "covered",
+    "doc_url": "new-article",
+    "reason": "The draft answers this directly once the [CONFIRM] items are filled in."
+   },
+   {
+    "ticket_id": "TCK-1070",
+    "coverage": "covered",
+    "doc_url": "new-article",
+    "reason": "The draft answers this directly once the [CONFIRM] items are filled in."
+   },
+   {
+    "ticket_id": "TCK-1083",
+    "coverage": "covered",
+    "doc_url": "new-article",
+    "reason": "The draft answers this directly once the [CONFIRM] items are filled in."
+   },
+   {
+    "ticket_id": "TCK-1086",
+    "coverage": "covered",
+    "doc_url": "new-article",
+    "reason": "The draft answers this directly once the [CONFIRM] items are filled in."
+   },
+   {
+    "ticket_id": "TCK-1087",
+    "coverage": "covered",
+    "doc_url": "new-article",
+    "reason": "The draft answers this directly once the [CONFIRM] items are filled in."
+   },
+   {
+    "ticket_id": "TCK-1090",
+    "coverage": "covered",
+    "doc_url": "new-article",
+    "reason": "The draft answers this directly once the [CONFIRM] items are filled in."
+   },
+   {
+    "ticket_id": "TCK-1093",
+    "coverage": "covered",
+    "doc_url": "new-article",
+    "reason": "The draft answers this directly once the [CONFIRM] items are filled in."
+   },
+   {
+    "ticket_id": "TCK-1095",
+    "coverage": "covered",
+    "doc_url": "new-article",
+    "reason": "The draft answers this directly once the [CONFIRM] items are filled in."
+   },
+   {
+    "ticket_id": "TCK-1096",
+    "coverage": "covered",
+    "doc_url": "new-article",
+    "reason": "The draft answers this directly once the [CONFIRM] items are filled in."
+   },
+   {
+    "ticket_id": "TCK-1076",
+    "coverage": "missing",
+    "doc_url": null,
+    "reason": "The new article is about plan downgrades and doesn't address this."
+   },
+   {
+    "ticket_id": "TCK-1099",
+    "coverage": "missing",
+    "doc_url": null,
+    "reason": "The new article is about plan downgrades and doesn't address this."
+   },
+   {
+    "ticket_id": "TCK-1057",
+    "coverage": "missing",
+    "doc_url": null,
+    "reason": "The new article is about plan downgrades and doesn't address this."
+   },
+   {
+    "ticket_id": "TCK-1016",
+    "coverage": "missing",
+    "doc_url": null,
+    "reason": "The new article is about plan downgrades and doesn't address this."
+   },
+   {
+    "ticket_id": "TCK-1018",
+    "coverage": "missing",
+    "doc_url": null,
+    "reason": "The new article is about plan downgrades and doesn't address this."
+   },
+   {
+    "ticket_id": "TCK-1021",
+    "coverage": "missing",
+    "doc_url": null,
+    "reason": "The new article is about plan downgrades and doesn't address this."
+   },
+   {
+    "ticket_id": "TCK-1023",
+    "coverage": "missing",
+    "doc_url": null,
+    "reason": "The new article is about plan downgrades and doesn't address this."
+   },
+   {
+    "ticket_id": "TCK-1026",
+    "coverage": "missing",
+    "doc_url": null,
+    "reason": "The new article is about plan downgrades and doesn't address this."
+   },
+   {
+    "ticket_id": "TCK-1051",
+    "coverage": "missing",
+    "doc_url": null,
+    "reason": "The new article is about plan downgrades and doesn't address this."
+   },
+   {
+    "ticket_id": "TCK-1098",
+    "coverage": "missing",
+    "doc_url": null,
+    "reason": "The new article is about plan downgrades and doesn't address this."
+   },
+   {
+    "ticket_id": "TCK-1049",
+    "coverage": "missing",
+    "doc_url": null,
+    "reason": "The new article is about plan downgrades and doesn't address this."
+   },
+   {
+    "ticket_id": "TCK-1062",
+    "coverage": "missing",
+    "doc_url": null,
+    "reason": "The new article is about plan downgrades and doesn't address this."
+   },
+   {
+    "ticket_id": "TCK-1079",
+    "coverage": "missing",
+    "doc_url": null,
+    "reason": "The new article is about plan downgrades and doesn't address this."
+   },
+   {
+    "ticket_id": "TCK-1085",
+    "coverage": "missing",
+    "doc_url": null,
+    "reason": "The new article is about plan downgrades and doesn't address this."
+   },
+   {
+    "ticket_id": "TCK-1014",
+    "coverage": "missing",
+    "doc_url": null,
+    "reason": "The new article is about plan downgrades and doesn't address this."
+   },
+   {
+    "ticket_id": "TCK-1019",
+    "coverage": "missing",
+    "doc_url": null,
+    "reason": "The new article is about plan downgrades and doesn't address this."
+   },
+   {
+    "ticket_id": "TCK-1065",
+    "coverage": "missing",
+    "doc_url": null,
+    "reason": "The new article is about plan downgrades and doesn't address this."
+   },
+   {
+    "ticket_id": "TCK-1074",
+    "coverage": "missing",
+    "doc_url": null,
+    "reason": "The new article is about plan downgrades and doesn't address this."
+   },
+   {
+    "ticket_id": "TCK-1091",
+    "coverage": "missing",
+    "doc_url": null,
+    "reason": "The new article is about plan downgrades and doesn't address this."
+   },
+   {
+    "ticket_id": "TCK-1005",
+    "coverage": "missing",
+    "doc_url": null,
+    "reason": "The new article is about plan downgrades and doesn't address this."
+   },
+   {
+    "ticket_id": "TCK-1009",
+    "coverage": "missing",
+    "doc_url": null,
+    "reason": "The new article is about plan downgrades and doesn't address this."
+   },
+   {
+    "ticket_id": "TCK-1020",
+    "coverage": "missing",
+    "doc_url": null,
+    "reason": "The new article is about plan downgrades and doesn't address this."
+   },
+   {
+    "ticket_id": "TCK-1060",
+    "coverage": "missing",
+    "doc_url": null,
+    "reason": "The new article is about plan downgrades and doesn't address this."
+   },
+   {
+    "ticket_id": "TCK-1004",
+    "coverage": "missing",
+    "doc_url": null,
+    "reason": "The new article is about plan downgrades and doesn't address this."
+   },
+   {
+    "ticket_id": "TCK-1042",
+    "coverage": "missing",
+    "doc_url": null,
+    "reason": "The new article is about plan downgrades and doesn't address this."
+   },
+   {
+    "ticket_id": "TCK-1081",
+    "coverage": "missing",
+    "doc_url": null,
+    "reason": "The new article is about plan downgrades and doesn't address this."
+   },
+   {
+    "ticket_id": "TCK-1097",
+    "coverage": "missing",
+    "doc_url": null,
+    "reason": "The new article is about plan downgrades and doesn't address this."
+   },
+   {
+    "ticket_id": "TCK-1030",
+    "coverage": "missing",
+    "doc_url": null,
+    "reason": "The new article is about plan downgrades and doesn't address this."
+   },
+   {
+    "ticket_id": "TCK-1067",
+    "coverage": "missing",
+    "doc_url": null,
+    "reason": "The new article is about plan downgrades and doesn't address this."
+   },
+   {
+    "ticket_id": "TCK-1073",
+    "coverage": "missing",
+    "doc_url": null,
+    "reason": "The new article is about plan downgrades and doesn't address this."
+   }
+  ]
+ }
+}
